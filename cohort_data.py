@@ -54,6 +54,32 @@ def sort_by_cohort(filename):
 
     # Code goes here
 
+    cohort_data = open(filename)
+
+    for line_of_data in cohort_data:
+        line_of_data = line_of_data.rstrip()
+        names_students = line_of_data.split("|")
+        full_name = names_students[0] + " " + names_students[1]
+
+        if names_students[-1] == "Fall 2015":
+            fall_15.append(full_name)
+        elif names_students[-1] == "Winter 2016":
+            winter_16.append(full_name)
+        elif names_students[-1] == "Spring 2016":
+            spring_16.append(full_name)
+        elif names_students[-1] == "Summer 2016":
+            summer_16.append(full_name)
+        elif names_students[-1] == "G":
+            ghosts.append(full_name)
+        else:
+            continue
+
+    all_students.append(fall_15)
+    all_students.append(winter_16)
+    all_students.append(spring_16)
+    all_students.append(summer_16)
+    all_students.append(ghosts)
+
     return all_students
 
 
@@ -81,6 +107,20 @@ def hogwarts_by_house(filename):
     instructors = []
 
     # Code goes here
+
+    cohort_data = open(filename)
+
+    for line in cohort_data:
+        line = cohort_data.split("|")
+        last_name = line[1]
+
+
+
+        if line[4] == "I":
+            instructors.append()
+
+
+
 
     return all_hogwarts
 
